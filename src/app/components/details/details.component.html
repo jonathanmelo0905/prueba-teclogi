@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Detalles del juego</h1>
+    <div class="game" *ngIf="info.length != 0 && stores.length != 0">
+        <div class="card">
+            <img src={{info[0].thumb}} alt="">
+            <div class="details">
+                <h1>{{info[0].title}}</h1>
+            </div>
+            <div class="price">
+                <h3>Mejor percio</h3>
+                <p>Precio: ${{cheapestPriceEver[0].price}}</p>
+                <p>Fecha: {{cheapestPriceEver[0].date | date}}</p>
+            </div>
+        </div>
+        <div class="stores">
+            <h3>TIENDAS</h3>
+            <div class="card_store">
+                <div class="cards" *ngFor="let deal of deals">
+                    <p>{{nameStore(deal.storeID)}}</p>
+                    <img src={{urlImage(deal.storeID)}} alt="">
+                    <p>DealId:</p>
+                    <p class="deal_id">{{deal.dealID}}</p>
+                    <p>Precio: ${{deal.price}}</p>
+                    <p>Precio al por menor: <br> ${{deal.retailPrice}}</p>
+                    <p>Ahorro: ${{deal.savings}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

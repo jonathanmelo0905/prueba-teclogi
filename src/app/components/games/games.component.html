@@ -1,0 +1,20 @@
+<div class="container">
+    <ng-container *ngIf="games.length !== 0; else mensaje">
+        <h1>Todos los juegos</h1>
+        <div class="list_card" >
+            <div class="card" *ngFor="let game of games">
+                <img src={{game.thumb}} alt="">
+                <h1 (click)="seeDetails(game)">{{game.external}}</h1>
+                <button (click)="seeDetails(game)">Ver detalles</button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #mensaje>
+        <div class="msg">
+            <p>
+                {{message}}
+            </p>
+            <img class="icon" src={{url}} alt="">
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="logo">
+    <img src="assets/pacman.png" alt="" />
+  </div>
+  <div class="box">
+    <div class="search" *ngIf="!button">
+      <img (click)="sendSearch()" class="icon" src="assets/busqueda.png" alt="" />
+      <input
+        type="text"
+        placeholder="¿Que estas buscando?"
+        [(ngModel)]="search"
+      />
+    </div>
+    <button (click)="backButton()" *ngIf="button">Volver</button>
+    <div class="res">
+      <p>
+        Resumen <br/>
+        de compras
+      </p>
+      <img class="icon" src="assets/carrito.png" alt="" />
+      <div class="counter">
+        <p>0</p>
+      </div>
+    </div>
+    <div class="res">
+      <img class="icon" src="assets/usuario.png" alt="" />
+      <p>Eduardo</p>
+      <img class="arrow" src="assets/abajo.png" alt="">
+    </div>
+  </div>
+</div>
