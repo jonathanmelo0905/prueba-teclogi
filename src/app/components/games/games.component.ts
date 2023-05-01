@@ -33,11 +33,11 @@ export class GamesComponent {
     let name = data;
     this.game.getGames(name).subscribe((res) => {
       this.games = res;
-      if(this.games.length === 0)this.mensajes(name);
+      if(this.games.length === 0)this.noFoundGame(name);
     });
   }
 
-  mensajes(name: string){
+  noFoundGame(name: string){
     this.message = `Lo siento, parece que no hemos encontrado ningún juego que coincida exactamente con el título ${name} que estás buscando. Pero no te desanimes, También puedes intentar realizar una búsqueda con palabras clave más generales, en lugar de utilizar el título exacto del juego.`;
     this.url = 'assets/triste.png';
   }
