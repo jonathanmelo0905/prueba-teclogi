@@ -4,14 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
+  { path:'', pathMatch: 'full', redirectTo: '/games' },
   {
-    path: '',
+    path: 'games',
     component: GamesComponent
   },
   {
     path: 'details',
     component: DetailsComponent
-  }
+  },
+  { path: '**', redirectTo: '/games'},
 ];
 
 @NgModule({

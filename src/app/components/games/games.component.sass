@@ -1,15 +1,19 @@
 $base-backgroung: rgb(248, 248, 248)
+@mixin div_personalizado($direction: column, $justify: center, $width: 100%)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: center
+    width: $width
 
 .container
     position: fixed
     top: 120px
     left: 0
-    display: flex
-    flex-direction: column
-    align-items: center
+    @include div_personalizado($justify: none)
+    
     gap: 20px
     padding: 60px
-    width: 100%
     height: calc( 100% - 120px )
     background-color: $base-backgroung
     overflow: hidden
@@ -23,16 +27,11 @@ h1
     align-self: flex-start
 
 .list_card
-    display: flex
+    @include div_personalizado($direction: row)
     flex-wrap: wrap
     gap: 30px
-    width: 100%
-    justify-content: center
     .card
-        display: flex
-        flex-direction: column
-        align-items: center
-        width: 320px
+        @include div_personalizado($justify: none, $width: 320px)
         height: max-content
         padding: 20px
         border-radius: 8px
@@ -48,11 +47,8 @@ h1
         object-fit: contain
         background-color: $base-backgroung
     h1
-        display: flex
-        justify-content: center
-        align-items: center
+        @include div_personalizado($direction: row)
         text-align: center
-        width: 100%
         height: 80px
         font-size: 20px
         cursor: pointer
@@ -71,11 +67,7 @@ h1
             background-color: blue
 
 .msg
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    width: 100%
+    @include div_personalizado()
     max-width: 800px
     padding: 40px
     background-color: white

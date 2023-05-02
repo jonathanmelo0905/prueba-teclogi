@@ -1,16 +1,18 @@
 $base-backgroung: rgb(248, 248, 248)
+@mixin div_personalizado($direction: column, $justify: center, $width: 100%)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: center
+    width: $width
     
 .container
     position: fixed
     top: 120px
     left: 0
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: flex-start
+    @include div_personalizado( $justify: flex-start)
     gap: 20px
     padding: 40px
-    width: 100%
     height: calc( 100% - 120px )
     background-color: $base-backgroung
     overflow: hidden
@@ -23,19 +25,13 @@ $base-backgroung: rgb(248, 248, 248)
         width: 100%
         text-align: center
     .game
-        display: flex
-        align-items: center
-        justify-content: center
+        @include div_personalizado( $direction: row)
         gap: 20px
-        width: 100%
         @media screen and (max-width: 1000px)
             flex-direction: column
         
         .card
-            display: flex
-            flex-direction: column
-            align-items: center
-            width: 100%
+            @include div_personalizado( $justify: none)
             max-width: 600px
             height: 450px
             gap: 10px
@@ -54,10 +50,7 @@ $base-backgroung: rgb(248, 248, 248)
                     height: 220px
             
             .price
-                display: flex
-                align-items: center
-                justify-content: center
-                width: 100%
+                @include div_personalizado( $direction: row)
                 gap: 10px
                 @media screen and (max-width: 500px)
                     flex-direction: column
@@ -71,12 +64,9 @@ $base-backgroung: rgb(248, 248, 248)
                     margin: 0
                     font-size: 12px
         .stores
-            display: flex
-            flex-direction: column
-            align-items: center
+            @include div_personalizado( $justify: none, $width: 400px)
             padding: 10px
             gap: 8px
-            width: 400px
             height: 450px
             background-color: white
             border-radius: 12px
@@ -96,10 +86,7 @@ $base-backgroung: rgb(248, 248, 248)
                 gap: 15px
                 padding-bottom: 5px 
                 .cards
-                    display: flex
-                    flex-direction: column
-                    align-items: center
-                    justify-content: space-around
+                    @include div_personalizado( $justify: space-around, $width: max-content)
                     min-width: 300px
                     height: 380px
                     padding: 10px

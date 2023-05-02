@@ -40,7 +40,7 @@ export class DetailsComponent {
           this.deals = this.details.deals;          
           this.info = [this.details.info];
         }else{
-          this.router.navigate(['/'])
+          this.router.navigate(['/','games'])
         }
       }
     )
